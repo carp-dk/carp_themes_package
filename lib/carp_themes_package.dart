@@ -1,8 +1,32 @@
-library carp_themes_package;
+/// carp_themes_package
+///
+/// This file exposes a small set of theme tokens and text styles used by the
+/// Carp UI components. It provides:
+///  - `CarpColors` - a `ThemeExtension` that stores named color tokens used in
+///    both light and dark themes.
+///  - `carpTheme` and `carpDarkTheme` - preconfigured `ThemeData` instances
+///    that include the `CarpColors` extension.
+///  - A collection of commonly used `TextStyle` constants.
+///
+/// Example
+/// ```dart
+/// final carpColors = Theme.of(context).extension<CarpColors>()!;
+/// final primary = carpColors.primary;
+/// ```
+library;
 
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 
+/// A collection of named color tokens used by the Carp design system.
+///
+/// This class is implemented as a `ThemeExtension` so the tokens can be
+/// attached to Flutter's `ThemeData.extensions` for easy access via
+/// `Theme.of(context).extension<CarpColors>()`.
+///
+/// The extension contains colors for primary actions, warnings, background
+/// surfaces and a set of greys used across the UI. All fields are nullable so
+/// the extension can be partially overridden via `copyWith`.
 @immutable
 class CarpColors extends ThemeExtension<CarpColors> {
   const CarpColors({
@@ -111,6 +135,11 @@ class CarpColors extends ThemeExtension<CarpColors> {
 }
 
 ThemeData carpTheme = ThemeData.light().copyWith(
+  /// The default (light) theme for Carp-based apps.
+  ///
+  /// This `ThemeData` includes a `CarpColors` extension with the app color
+  /// tokens and a set of text theme overrides. Use `carpTheme` when building
+  /// the MaterialApp for a standard Carp appearance.
   extensions: <ThemeExtension<dynamic>>[
     CarpColors(
       primary: const Color(0xff006398),
@@ -181,6 +210,10 @@ ThemeData carpTheme = ThemeData.light().copyWith(
 );
 
 ThemeData carpDarkTheme = ThemeData.dark().copyWith(
+  /// A dark variant of the Carp theme.
+  ///
+  /// Use this when the application is running in dark mode. It provides
+  /// alternate `CarpColors` tokens suitable for dark backgrounds.
   extensions: <ThemeExtension<dynamic>>[
     CarpColors(
       primary: const Color(0xff24B2FF),
@@ -253,6 +286,11 @@ ThemeData carpDarkTheme = ThemeData.dark().copyWith(
   ),
 );
 
+/// Common text style constants used across Carp widgets.
+///
+/// These are small convenience constants (short names follow the pattern
+/// `fs<fontSize>fw<fontWeight>`) and are provided so callers can easily
+/// reuse the same visual tokens without rebuilding `TextStyle` objects.
 TextStyle fs10fw600 = const TextStyle(fontSize: 10, fontWeight: FontWeight.w600)
     .apply(fontFamily: 'OpenSans');
 TextStyle fs10fw700 =
@@ -266,17 +304,13 @@ TextStyle fs12fw600 =
 TextStyle fs12fw700 =
     const TextStyle(fontSize: 12, fontWeight: FontWeight.w700);
 
-
-TextStyle fs14ls1 =
-    const TextStyle(fontSize: 14, letterSpacing: 1);
+TextStyle fs14ls1 = const TextStyle(fontSize: 14, letterSpacing: 1);
 TextStyle fs14fw600 =
     const TextStyle(fontSize: 14, fontWeight: FontWeight.w600);
-
 
 TextStyle inputFieldStyle =
     const TextStyle(fontSize: 15, color: Color(0xff707070));
 
-    
 TextStyle fs16fw400ls0 = const TextStyle(
     fontSize: 16, fontWeight: FontWeight.w400, letterSpacing: 0);
 TextStyle fs16fw400ls1 = const TextStyle(
@@ -288,12 +322,10 @@ TextStyle fs16fw600 =
 TextStyle fs16fw700 =
     const TextStyle(fontSize: 16, fontWeight: FontWeight.w700);
 
-
 TextStyle fs18fw400 =
     const TextStyle(fontSize: 18, fontWeight: FontWeight.w400);
 TextStyle fs18fw700 =
     const TextStyle(fontSize: 18, fontWeight: FontWeight.w700);
-
 
 TextStyle fs20fw700 = const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)
     .apply(fontFamily: 'OpenSans');
@@ -321,11 +353,10 @@ TextStyle fs28fw700 =
 
 TextStyle fs30fw800 =
     const TextStyle(fontSize: 30.0, fontWeight: FontWeight.w800);
-    
+
 TextStyle scoreNumberStyle = const TextStyle(
     fontSize: 36,
     fontWeight: FontWeight.w800,
     color: Color.fromRGBO(32, 111, 162, 1));
 TextStyle fs36fw600 =
     const TextStyle(fontSize: 36, fontWeight: FontWeight.w600);
-
