@@ -308,7 +308,7 @@ TextStyle fs14ls1 = const TextStyle(fontSize: 14, letterSpacing: 1);
 TextStyle fs14fw600 =
     const TextStyle(fontSize: 14, fontWeight: FontWeight.w600);
 
-TextStyle inputFieldStyle =
+TextStyle fs15Grey =
     const TextStyle(fontSize: 15, color: Color(0xff707070));
 
 TextStyle fs16fw400ls0 = const TextStyle(
@@ -331,7 +331,7 @@ TextStyle fs20fw700 = const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)
     .apply(fontFamily: 'OpenSans');
 TextStyle fs20fw700ls0 = const TextStyle(
     fontSize: 20, fontWeight: FontWeight.w700, letterSpacing: 0);
-TextStyle scoreNumberStyleSmall = const TextStyle(
+TextStyle fs20fw800 = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w800,
     color: Color.fromRGBO(32, 111, 162, 1));
@@ -343,8 +343,8 @@ TextStyle fs24fw700ls0 = const TextStyle(
     fontSize: 24, fontWeight: FontWeight.w700, letterSpacing: 0);
 TextStyle fs24fw600 =
     const TextStyle(fontSize: 24, fontWeight: FontWeight.w600);
-TextStyle welcomeMessageStyle = const TextStyle(
-    fontSize: 24, color: Color(0xff707070), fontWeight: FontWeight.bold);
+TextStyle fs24fw700Gray = const TextStyle(
+    fontSize: 24, color: Color(0xff707070), fontWeight: FontWeight.w700);
 TextStyle fs24fw700 = const TextStyle(fontSize: 24, fontWeight: FontWeight.w700)
     .apply(fontFamily: 'OpenSans');
 
@@ -354,9 +354,9 @@ TextStyle fs28fw700 =
 TextStyle fs30fw800 =
     const TextStyle(fontSize: 30.0, fontWeight: FontWeight.w800);
 
-TextStyle scoreNumberStyle = const TextStyle(
+TextStyle fs36fw600 =
+    const TextStyle(fontSize: 36, fontWeight: FontWeight.w600);
+TextStyle fs36fw800 = const TextStyle(
     fontSize: 36,
     fontWeight: FontWeight.w800,
     color: Color.fromRGBO(32, 111, 162, 1));
-TextStyle fs36fw600 =
-    const TextStyle(fontSize: 36, fontWeight: FontWeight.w600);

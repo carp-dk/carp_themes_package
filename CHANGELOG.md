@@ -1,3 +1,7 @@
+## 0.0.3
+
+* minor name changes
+
 ## 0.0.2
 
 * provide documentation
