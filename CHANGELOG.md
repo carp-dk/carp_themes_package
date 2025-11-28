@@ -1,3 +1,7 @@
+## 0.0.4+1
+
+* hotfixes
+
 ## 0.0.4
 
 * adding new TextStyles fs18fw100, fs18fw200, fs18fw300
