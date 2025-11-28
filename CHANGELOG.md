@@ -1,3 +1,7 @@
+## 0.0.4
+
+* adding new TextStyles fs18fw100, fs18fw200, fs18fw300
+
 ## 0.0.3
 
 * minor name changes

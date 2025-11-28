@@ -322,6 +322,12 @@ TextStyle fs16fw600 =
 TextStyle fs16fw700 =
     const TextStyle(fontSize: 16, fontWeight: FontWeight.w700);
 
+TextStyle fs18fw100 =
+    const TextStyle(fontSize: 18, fontWeight: FontWeight.w400);
+TextStyle fs18fw200 =
+    const TextStyle(fontSize: 18, fontWeight: FontWeight.w400);
+TextStyle fs18fw300 =
+    const TextStyle(fontSize: 18, fontWeight: FontWeight.w400);
 TextStyle fs18fw400 =
     const TextStyle(fontSize: 18, fontWeight: FontWeight.w400);
 TextStyle fs18fw700 =

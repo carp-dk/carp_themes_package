@@ -1,6 +1,6 @@
 name: carp_themes_package
 description: "The CARP Themes package is a package that contains themes, colors and widgets that are used across the entire CARP platform."
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/carp-dk/carp_themes_package
 
 environment:
