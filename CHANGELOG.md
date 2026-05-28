@@ -1,3 +1,9 @@
+## 0.0.5
+
+* Add explicit `package:flutter/cupertino.dart` import for Flutter 3.44+
+  compatibility (`CupertinoPageTransitionsBuilder` is no longer re-exported
+  from `material.dart`).
+
 ## 0.0.4+1
 
 * hotfixes
