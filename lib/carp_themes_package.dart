@@ -5,9 +5,8 @@
 /// [TextTheme] and component themes (buttons, cards) so widgets read style from
 /// `Theme.of(context)` instead of hard-coding colors or text styles.
 ///
-/// [CarpColors] is a small [ThemeExtension] retained for the few brand tokens
-/// that external consumers (e.g. `research_package`) read. New app code should
-/// prefer `Theme.of(context).colorScheme` and Flutter's `Colors.grey` ramp.
+/// App code should use `Theme.of(context).colorScheme` and Flutter's
+/// `Colors.grey` ramp; there is no custom color extension.
 library;
 
 import 'package:flutter/cupertino.dart';
@@ -15,52 +14,6 @@ import 'package:flutter/material.dart';
 
 /// The brand primary color.
 const Color _primary = Color(0xff006398);
-
-/// A few brand tokens exposed to consumers of the theme that Material's
-/// [ColorScheme] does not cover. Kept intentionally small; the greys mirror
-/// Flutter's [Colors.grey] ramp.
-///
-/// Read via `Theme.of(context).extension<CarpColors>()!`.
-@immutable
-class CarpColors extends ThemeExtension<CarpColors> {
-  const CarpColors({
-    this.primary = _primary,
-    this.backgroundGray = const Color(0xffF2F2F7),
-    this.grey300 = const Color(0xffE0E0E0),
-    this.grey900 = const Color(0xff212121),
-  });
-
-  /// The brand primary color.
-  final Color primary;
-
-  /// The page/scaffold background tint.
-  final Color backgroundGray;
-
-  /// Light border/divider grey (Material `Colors.grey.shade300`).
-  final Color grey300;
-
-  /// Primary text grey (Material `Colors.grey.shade900`).
-  final Color grey900;
-
-  @override
-  CarpColors copyWith({Color? primary, Color? backgroundGray, Color? grey300, Color? grey900}) => CarpColors(
-    primary: primary ?? this.primary,
-    backgroundGray: backgroundGray ?? this.backgroundGray,
-    grey300: grey300 ?? this.grey300,
-    grey900: grey900 ?? this.grey900,
-  );
-
-  @override
-  CarpColors lerp(CarpColors? other, double t) {
-    if (other is! CarpColors) return this;
-    return CarpColors(
-      primary: Color.lerp(primary, other.primary, t)!,
-      backgroundGray: Color.lerp(backgroundGray, other.backgroundGray, t)!,
-      grey300: Color.lerp(grey300, other.grey300, t)!,
-      grey900: Color.lerp(grey900, other.grey900, t)!,
-    );
-  }
-}
 
 /// The light [ColorScheme]. Pinned explicitly (no seed) so the palette is
 /// stable and matches the brand.
@@ -124,7 +77,6 @@ final ThemeData carpTheme = ThemeData(
   textTheme: _textTheme,
   fontFamily: 'OpenSans',
   scaffoldBackgroundColor: const Color(0xffF2F2F7),
-  extensions: const <ThemeExtension<dynamic>>[CarpColors()],
   pageTransitionsTheme: const PageTransitionsTheme(
     builders: <TargetPlatform, PageTransitionsBuilder>{
       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
