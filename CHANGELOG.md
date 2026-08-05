@@ -1,3 +1,14 @@
+## 0.1.0
+
+* Standardize on Flutter's `ThemeData`: full [TextTheme] (Material roles) and an
+  explicit [ColorScheme] (no seed), plus button and card component themes so
+  widgets read style from `Theme.of(context)`.
+* Remove the loose `fsXXfwYY` `TextStyle` globals and the dark theme.
+* Slim `CarpColors` down to the brand tokens external consumers use
+  (`primary`, `backgroundGray`, `grey300`, `grey900`); greys mirror
+  `Colors.grey`.
+* Add `carpPillButtonStyle` for full-width primary CTAs.
+
 ## 0.0.5
 
 * Add explicit `package:flutter/cupertino.dart` import for Flutter 3.44+
