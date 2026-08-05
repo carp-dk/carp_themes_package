@@ -295,6 +295,14 @@ const RoundedRectangleBorder _roundedShape = RoundedRectangleBorder(
 
 const EdgeInsets _buttonPadding = EdgeInsets.symmetric(horizontal: 24, vertical: 14);
 
+/// A full-width, pill-shaped primary button style for prominent call-to-action
+/// buttons (e.g. login, accept invitation). Use with [FilledButton].
+final ButtonStyle carpPillButtonStyle = FilledButton.styleFrom(
+  minimumSize: const Size.fromHeight(56),
+  shape: const StadiumBorder(),
+  textStyle: const TextStyle(fontSize: 22, fontFamily: 'OpenSans', fontWeight: FontWeight.w600),
+);
+
 /// The default (light) theme for CARP apps. Build the app's `MaterialApp` with
 /// this so buttons, cards, inputs and text pick up a consistent style without
 /// per-widget overrides.
