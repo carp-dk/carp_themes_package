@@ -1,3 +1,11 @@
+## 0.2.0
+
+* Buttons are pill-shaped (`StadiumBorder`) by default via the component themes;
+  drop the separate `carpPillButtonStyle` in favour of themed
+  `FilledButton`/`OutlinedButton`/`TextButton`.
+* Add an `appBarTheme` (flat, transparent surface tint, `headlineSmall` title)
+  so app bars match the page background.
+
 ## 0.1.0
 
 * Standardize on Flutter's `ThemeData`: full [TextTheme] (Material roles) and an
