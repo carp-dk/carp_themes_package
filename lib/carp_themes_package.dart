@@ -15,6 +15,9 @@ import 'package:flutter/material.dart';
 /// The brand primary color.
 const Color _primary = Color(0xff006398);
 
+/// The greyish page background used by scaffolds and app bars.
+const Color _background = Color(0xffF2F2F7);
+
 /// The light [ColorScheme]. Pinned explicitly (no seed) so the palette is
 /// stable and matches the brand.
 final ColorScheme _colorScheme = ColorScheme.light(
@@ -52,20 +55,15 @@ final TextTheme _textTheme = const TextTheme(
   labelSmall: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
 ).apply(fontFamily: 'OpenSans');
 
-/// Shared shape for buttons and cards.
+/// Rounded shape for cards.
 const RoundedRectangleBorder _roundedShape = RoundedRectangleBorder(
   borderRadius: BorderRadius.all(Radius.circular(8)),
 );
 
-const EdgeInsets _buttonPadding = EdgeInsets.symmetric(horizontal: 24, vertical: 14);
+/// Pill shape shared by all buttons.
+const StadiumBorder _buttonShape = StadiumBorder();
 
-/// A full-width, pill-shaped primary button style for prominent call-to-action
-/// buttons (e.g. login, accept invitation). Use with [FilledButton].
-final ButtonStyle carpPillButtonStyle = FilledButton.styleFrom(
-  minimumSize: const Size.fromHeight(56),
-  shape: const StadiumBorder(),
-  textStyle: const TextStyle(fontSize: 22, fontFamily: 'OpenSans', fontWeight: FontWeight.w600),
-);
+const EdgeInsets _buttonPadding = EdgeInsets.symmetric(horizontal: 28, vertical: 12);
 
 /// The default (light) theme for CARP apps. Build the app's `MaterialApp` with
 /// this so buttons, cards and text pick up a consistent style without
@@ -76,7 +74,16 @@ final ThemeData carpTheme = ThemeData(
   primaryColor: _primary,
   textTheme: _textTheme,
   fontFamily: 'OpenSans',
-  scaffoldBackgroundColor: const Color(0xffF2F2F7),
+  scaffoldBackgroundColor: _background,
+  appBarTheme: AppBarTheme(
+    backgroundColor: _background,
+    foregroundColor: Colors.grey.shade900,
+    surfaceTintColor: Colors.transparent,
+    elevation: 0,
+    scrolledUnderElevation: 0,
+    centerTitle: false,
+    titleTextStyle: _textTheme.headlineSmall,
+  ),
   pageTransitionsTheme: const PageTransitionsTheme(
     builders: <TargetPlatform, PageTransitionsBuilder>{
       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
@@ -85,7 +92,7 @@ final ThemeData carpTheme = ThemeData(
   ),
   filledButtonTheme: FilledButtonThemeData(
     style: FilledButton.styleFrom(
-      shape: _roundedShape,
+      shape: _buttonShape,
       padding: _buttonPadding,
       textStyle: _textTheme.labelLarge,
       minimumSize: const Size(0, 48),
@@ -96,7 +103,7 @@ final ThemeData carpTheme = ThemeData(
       backgroundColor: _primary,
       foregroundColor: Colors.white,
       elevation: 0,
-      shape: _roundedShape,
+      shape: _buttonShape,
       padding: _buttonPadding,
       textStyle: _textTheme.labelLarge,
       minimumSize: const Size(0, 48),
@@ -106,7 +113,7 @@ final ThemeData carpTheme = ThemeData(
     style: OutlinedButton.styleFrom(
       foregroundColor: _primary,
       side: const BorderSide(color: _primary),
-      shape: _roundedShape,
+      shape: _buttonShape,
       padding: _buttonPadding,
       textStyle: _textTheme.labelLarge,
       minimumSize: const Size(0, 48),
@@ -116,7 +123,8 @@ final ThemeData carpTheme = ThemeData(
     style: TextButton.styleFrom(
       foregroundColor: _primary,
       textStyle: _textTheme.labelLarge,
-      shape: _roundedShape,
+      padding: _buttonPadding,
+      shape: _buttonShape,
     ),
   ),
   cardTheme: CardThemeData(
