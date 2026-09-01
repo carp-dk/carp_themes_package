@@ -29,6 +29,10 @@ final ColorScheme _colorScheme = ColorScheme.light(
   surface: Colors.white,
   onSurface: Colors.grey.shade900,
   error: const Color(0xffEB4B62),
+  // Borders and dividers. Without these, an unseeded ColorScheme leaves them
+  // opaque black, which is also what ThemeData.dividerColor derives from.
+  outline: Colors.grey.shade500,
+  outlineVariant: Colors.grey.shade300,
 );
 
 /// The base type scale, colored [ColorScheme.onSurface] and using OpenSans.
@@ -53,7 +57,13 @@ final TextTheme _textTheme = const TextTheme(
   labelLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
   labelMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
   labelSmall: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-).apply(fontFamily: 'OpenSans');
+).apply(
+  fontFamily: 'OpenSans',
+  // Styles are also used raw - e.g. dialogTheme - where nothing supplies a
+  // color and null renders white. ThemeData would only color merged usage.
+  bodyColor: _colorScheme.onSurface,
+  displayColor: _colorScheme.onSurface,
+);
 
 /// Rounded shape for cards.
 const RoundedRectangleBorder _roundedShape = RoundedRectangleBorder(
@@ -126,6 +136,13 @@ final ThemeData carpTheme = ThemeData(
       padding: _buttonPadding,
       shape: _buttonShape,
     ),
+  ),
+  // A dialog title is a question, not a headline: M3 would otherwise take the
+  // 24/w700 headlineSmall of this theme.
+  dialogTheme: DialogThemeData(
+    titleTextStyle:
+        _textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+    contentTextStyle: _textTheme.bodyMedium,
   ),
   cardTheme: CardThemeData(
     color: Colors.white,
