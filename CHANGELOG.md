@@ -1,3 +1,10 @@
+## 0.2.1
+
+* Fix opaque black borders and dividers: an unseeded `ColorScheme.light` leaves
+  `outline`/`outlineVariant` - and with them `ThemeData.dividerColor` - black.
+* Add a `dialogTheme`, so a dialog title is a title rather than the 24/w700
+  `headlineSmall` Material 3 would otherwise pick.
+
 ## 0.2.0
 
 * Buttons are pill-shaped (`StadiumBorder`) by default via the component themes;
